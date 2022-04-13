@@ -1,0 +1,70 @@
+
+.navbar_container{
+  width: 100vw;
+  padding: 10px 15px;
+  
+}
+
+.ubicacion_menu_filter{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 15px;
+}
+
+.ubicacion{
+  justify-self: start;
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  align-items: center;
+}
+
+.titulo_ubicacion{
+  border-bottom: 1px dashed #ccc;
+  font-size: 16px;
+  font-weight: 550;
+  line-height: 1.2;
+  color: #121416;
+}
+
+.filter_menu{
+  justify-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 15px;
+}
+
+.search_container{
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0px 0px 18px #efefef;
+
+}
+
+.input_search{
+  grid-column: 0/2;
+  padding: 0 10px 0 13px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+
+.input_search:focus{
+  outline: none;
+}
+
+.search{
+  color: #f51042;
+  grid-column: 0/1;
+  font-size: 18px;
+  margin: 0 5px 0 15px;
+}
+
+.icons{
+  font-size: 18px;
+}
+

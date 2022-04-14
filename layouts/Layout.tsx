@@ -4,7 +4,7 @@ import { Navbar } from '../components/ui/Navbar';
 
 
 interface Props {
-  children : JSX.Element;
+  children : JSX.Element | JSX.Element[];
   title?: string;
   description? : string;
 }
@@ -23,7 +23,7 @@ export const Layout : FC<Props> = ({ children ,title,description}) => {
 
       <Navbar />
 
-      <main>
+      <main style={{marginTop:"100px"}}>
         { children }
       </main>
     </>

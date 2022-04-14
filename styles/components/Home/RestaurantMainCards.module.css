@@ -1,0 +1,44 @@
+.restaurant_container::-webkit-scrollbar {
+
+  display: none;
+
+}
+
+.restaurant_main_cards_container{
+  display: grid;
+
+}
+
+.restaurant_title{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 15px;
+  margin-top: 7px;
+  align-items: center;
+}
+
+.restaurant_title h4 {
+  justify-self: start;
+  padding-left: 12px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.restaurant_title p {
+  justify-self: end;
+  padding-right: 12px;
+  color: #f51042;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.restaurant_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 0 15px;
+  gap: 15px;
+  justify-items: center;
+  overflow-x: hidden;
+  grid-auto-flow: column;
+
+}

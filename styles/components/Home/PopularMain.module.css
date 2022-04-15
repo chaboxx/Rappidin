@@ -1,0 +1,28 @@
+.popular_main_container{
+  padding-top: 10px;
+  margin-top: 15px;
+}
+.description{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+}
+.description h5{
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+.description p{
+  justify-self: end;
+  margin-right: 8px;
+  color: #f62955;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.popular_cards_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 10px;
+  padding: 0 13px;
+}

@@ -1,11 +1,9 @@
-.restaurant_container::-webkit-scrollbar {
 
-  display: none;
-
-}
 
 .restaurant_main_cards_container{
   display: grid;
+  border-bottom: 1px solid #f1f2f4;
+  background-color: #fcfcfc;
 
 }
 

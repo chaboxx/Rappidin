@@ -1,0 +1,118 @@
+
+
+.card_container{
+  border-radius: 12px;  
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+.image{
+  background-image: url("../../../public/popular1.png");
+  background-size: cover;
+  height: 145px;
+  display: grid;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.image_top{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+.image_top p{
+  background-color: #ffc107;
+  font-size: 12px;
+  font-weight: 700;
+  width: max-content;
+  height: fit-content;
+  border-radius: 5px;
+  margin: 7px;
+  padding: 1px 5px;
+}
+.icon_book_mark{
+  justify-self: end;
+  background-color: white;
+  margin: 8px;
+  width: fit-content;
+  height: fit-content;
+  padding: 4px;
+  border-radius: 50%;
+  font-size: 13px;
+}
+
+.star_container{
+  background-color: #28a745;
+  width: fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  border-radius: 4px;
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 7px;
+  margin-right: 7px;
+  padding: 1.5px 0;
+}
+
+.star_container p{
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.star_icon{
+  color: white;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.description_container{
+  display: grid;
+  margin-bottom: 10px;
+  padding: 0 8px;
+}
+
+.description_title{
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.description_subtitle{
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.calification_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 4px;
+  width: 40%;
+}
+.calification_container svg{
+  background-color: #ffc107;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 2px;
+}
+
+.offer_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 45%;
+  margin-top: 15px;
+  gap: 7px;
+}
+.offer{
+  background-color: #f1025d;
+  color: white;
+  height: fit-content;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.off{
+  font-size: 12px;
+}

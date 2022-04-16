@@ -1,4 +1,4 @@
-.card_restaurant_container{
+.card_restaurant_container_column{
   width: 210px;
   border-radius: 13px;
   height: 250px;
@@ -7,12 +7,30 @@
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 12px;
 }
+.card_restaurant_container_row{
+  width: 100%;
+  border-radius: 13px;
+  display: grid;
+  background-color: white;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+  grid-template-columns: 1fr 2fr;
+}
+.image_row{
+  display: grid;
+  background-image: url("../../../public/image_rappidin.png");
+  background-size: cover;
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+}
 
 .image{
   display: grid;
   background-image: url("../../../public/image_rappidin.png");
   background-size: cover;
   height: 115px;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
 }
  
 
@@ -40,7 +58,16 @@
   padding: 3px 4px;
   border-radius: 50%;
 }
-
+.icon_book_mark_row{
+  background-color: white;
+  position: relative;
+  top: -36px;
+  left: 120px;
+  width: 20px;
+  height: 20px;
+  padding: 3px 4px;
+  border-radius: 50%;
+}
 
 .starts_container{
   display: grid;

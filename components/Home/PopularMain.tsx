@@ -19,8 +19,8 @@ export const PopularMain :FC<Props> = ({popular}) => {
       </div>
       <div className={styles.popular_cards_container}>
         {
-          popular.map(popular=>(
-            <CardRestaurantSecondary restaurant={popular}/>
+          popular.map((popular,index)=>(
+            <CardRestaurantSecondary restaurant={popular} key={index}/>
           ))
 
         }

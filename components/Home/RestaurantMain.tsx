@@ -19,7 +19,7 @@ export const RestaurantMainCards : FC<Props> = ({restaurants}) => {
         {
           restaurants.map((restaurant,index)=>(
             
-            <CardRestaurant key={index} restaurant={restaurant}/>
+            <CardRestaurant key={index} restaurant={restaurant} layout="column"/>
           ))
         }
       </div>

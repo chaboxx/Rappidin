@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import Image from 'next/image';
+
 
 import { BiTimeFive } from "react-icons/bi";
 import { BsBookmark } from "react-icons/bs";
@@ -9,15 +9,16 @@ import styles from "../../styles/components/ui/CardRestaurant.module.css";
 
 interface Props{
   restaurant : string;
+  layout: "row" | "column";
 }
 
 
-export const CardRestaurant : FC<Props> = ({restaurant}) => {
+export const CardRestaurant : FC<Props> = ({restaurant ,layout}) => {
   return (
-    <div className={styles.card_restaurant_container}>
-      <div className={styles.image}>
+    <div className={`${layout==="column" ? styles.card_restaurant_container_column : styles.card_restaurant_container_row}`}>
+      <div className={`${layout==="column" ? styles.image : styles.image_row}`}>
         <p className={styles.estado}>HOT</p>
-        <BsBookmark className={styles.icon_bookmark} />
+        <BsBookmark className={`${layout==="column" ? styles.icon_book_mark : styles.icon_book_mark_row}`} />
         
         <div className={styles.starts_container}>
           <AiOutlineStar className={styles.icon_start}/>

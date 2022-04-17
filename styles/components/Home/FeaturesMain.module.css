@@ -1,6 +1,12 @@
-.features_main_container{
+.features_main_container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
   margin-top: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 20px;
+  grid-auto-flow: column;
+  overflow-x: auto;
+}
+.image{
+  width: 200px;
 }

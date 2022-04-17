@@ -1,7 +1,8 @@
 import { FC } from "react"
 
-import { CardRestaurantSecondary } from "../ui/CardRestaurantSecondary";
 
+
+import { CardRestaurantSecondary } from "../ui/CardRestaurantSecondary";
 import styles from "../../styles/components/Home/PopularMain.module.css";
 
 interface Props {
@@ -25,7 +26,9 @@ export const PopularMain :FC<Props> = ({popular}) => {
 
         }
       </div>
-
+      
+      <div className={styles.image}>
+      </div>
       
     </section>
   )

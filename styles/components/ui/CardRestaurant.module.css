@@ -1,5 +1,6 @@
 .card_restaurant_container_column{
-  width: 210px;
+  min-width: 210px;
+  max-width: 250px;
   border-radius: 13px;
   height: 250px;
   display: grid;

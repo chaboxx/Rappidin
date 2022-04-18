@@ -87,6 +87,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 4px;
   width: 40%;
+  max-width: 120px;
 }
 .calification_container svg{
   background-color: #ffc107;

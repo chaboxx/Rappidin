@@ -1,0 +1,61 @@
+
+.profile_card_container{
+  background-color: white;
+  padding: 10px 15px;
+}
+
+  
+.profile_info{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.image{
+  border-radius: 50%;
+}
+
+.profile_description{
+  display: grid;
+  
+}
+
+.name{
+  display: grid;
+  grid-template-columns: 110px 25px;
+  align-items: center;
+
+}
+
+.name_text{
+  font-size: 15px;
+  font-weight: 700;
+}
+.icon{
+  color: #40b059;
+}
+.email{
+  font-size: 13px;
+  font-weight: 100;
+}
+.credit_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.amount{
+  justify-self: end;
+  margin-right: 5px;
+  color: #f5204f;
+  font-weight: 600;
+}
+
+.amount_text{
+  font-size: 13px;
+  font-weight: 100;
+}
+

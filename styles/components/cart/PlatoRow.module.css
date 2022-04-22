@@ -1,0 +1,20 @@
+.plato_row_container{
+  display: grid;
+
+}
+.icon{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e46773;
+  border-radius: 5px;
+}
+.icon::after{
+  content: "";
+  background-color: #dc3545;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 3px;
+  margin: 0 6px;
+  border-radius: 50%;
+}

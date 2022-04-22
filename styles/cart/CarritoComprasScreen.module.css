@@ -1,0 +1,43 @@
+.carrito_compras_container{
+  background-color: #f3f4f4;
+}
+
+.restaurant_title_container{
+  padding: 5px 10px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 5px;
+  align-items: center;
+
+}
+.restaurant_image{
+  border-radius: 50%;
+}
+
+.restaurant_ubication{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+}
+
+.restaurant_title{
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.restaurant_text_ubication{
+  font-size: 13px;
+  font-weight: 350;
+}
+
+.icon_ubication{
+  font-size: 14px;
+
+}
+
+
+/* Cart PlatoRow.tsx */
+.menus_container{
+  background-color: white;
+}

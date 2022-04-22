@@ -1,0 +1,108 @@
+.restaurant_screen_module{
+  display: grid;
+  background-color: #f30b4c;
+  padding: 7px 15px;
+}
+.restaurant_title{
+  font-size: 34px;
+  font-weight: 650;
+  color: white;
+  line-height: 1.2;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.restaurant_subtitle{
+  font-size: 14px;
+  color: #f772a2;
+  margin-bottom: 7px;
+  margin-top: 5px;
+}
+
+.restaurant_calification{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 45%;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.restaurant_stars{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 3px;
+  width: 100px;
+}
+
+.reviews_count{
+  display: grid;
+  color: #f773a3;
+  font-size: 13px;
+}
+
+.star_full{
+  background-color: black;
+  color: #e8b007;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 1.5px;
+}
+
+
+.star_empty{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 1.5px;
+}
+
+.restaurant_delivery_information{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.restaurant_delivery{
+  display: grid;
+  grid-template-columns: 60px 50px;
+  align-items: center;
+}
+
+.delivery{
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.info_price{
+  background-color: #e8b007;
+  border-radius: 5px;
+  text-align: center;
+  height: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #423c23;
+}
+
+.open_time_container{
+  display: grid;
+  grid-template-columns: 70px 70px;
+  gap: 5px;
+  align-items: center;
+}
+
+.open{
+  color: white;
+  font-size: 14px;
+}
+.time{
+  background-color: #343a40;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 13px;
+  padding-bottom: 2px;
+}

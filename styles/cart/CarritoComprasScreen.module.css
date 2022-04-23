@@ -40,4 +40,47 @@
 /* Cart PlatoRow.tsx */
 .menus_container{
   background-color: white;
+  margin-top: 12px;
+}
+
+/*  */
+.promo_messages_container{
+  margin-top: 12px;
+  background-color: white;
+  padding: 10px 12px;
+}
+
+.promo_container{
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  align-items: center;
+}
+
+.input_promo{
+  border: 1px solid #edeff1;
+  padding: 3px;
+}
+.apply_button{
+  background-color: #f20558;
+  font-size: 12px;
+  padding: 7px 0;
+  color: white;
+}
+.message_container{
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+}
+
+.button_send_message{
+  border: 1px solid #edeff1;
+  border-right: none;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.input_message{
+  border: 1px solid #edeff1;
+  padding: 0 7px;
 }

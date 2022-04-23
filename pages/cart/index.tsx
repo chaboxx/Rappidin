@@ -3,8 +3,8 @@ import { NextPage } from "next";
 import Image from "next/image";
 
 import { Layout } from "../../layouts/Layout";
-import { NavigationBar } from "../../components/ui/NavigationBar";
 
+import { PayButton } from "../../components/cart/PayButton";
 import { PlatoRow } from "../../components/cart/PlatoRow";
 
 import { FiMapPin ,FiMessageSquare } from "react-icons/fi";
@@ -47,25 +47,27 @@ export const CarritoComprasScreen:NextPage = () => {
           }
         </div>
 
-        <div>
-          <div>
+        <div className={styles.promo_messages_container}>
+          <div className={styles.promo_container}>
 
-            <input type="text" name="promo_code" placeholder="Enter promo code" />
-            <button>% APPLY</button>
+            <input className={styles.input_promo} type="text" name="promo_code" placeholder="Enter promo code" />
+            <button className={styles.apply_button}>% APPLY</button>
           </div>
-          <div>
-            <button>
+
+          <div className={styles.message_container}>
+            <button className={styles.button_send_message}>
               <FiMessageSquare/>
             </button>
-            <input type="text"  name="comment" multiple />
+            <textarea className={styles.input_message} name="comment" placeholder="Any suggestions? We will pass it on.."/>
           </div>
 
         </div>
 
+      
         <SummaryTotal total={total}/>
       </div>
 
-      <NavigationBar/>
+      <PayButton/>
     </Layout>
   )
 }

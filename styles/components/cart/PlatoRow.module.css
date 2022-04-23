@@ -1,20 +1,54 @@
-.plato_row_container{
-  display: grid;
 
-}
-.icon{
-  width: 20px;
-  height: 20px;
+.icon_svg{
+  width: 17px;
+  height: 17px;
   border: 1px solid #e46773;
   border-radius: 5px;
+  display: grid;
+  place-content: center;
 }
-.icon::after{
-  content: "";
+
+.icon_svg div{
+  width: 6px;
+  height: 6px;
   background-color: #dc3545;
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 3px;
-  margin: 0 6px;
   border-radius: 50%;
+}
+
+.plato_row_container{
+  display: grid;
+  grid-template-columns: 19px 1fr 72px 30px;
+  gap: 12px;
+  padding: 8px 10px;
+  align-items: center;
+  border-bottom: 1px solid #edeff1;
+}
+
+.title{
+  font-size: 13px;
+}
+.boton_cantidad{
+  display: grid;
+  grid-template-columns: 20px 30px 20px;
+  align-items: center;
+  justify-items: center;
+  background-color: #fff3f4;
+  border: 1px solid #f51042;
+  border-radius: 3px;
+  padding: 2px 0;
+
+}
+
+.cantidad {
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.icon{
+  color: #f51042;
+  font-size: 13px;
+}
+
+.precio{
+  font-size: 12px;
 }

@@ -1,0 +1,144 @@
+.payment_details_container{
+  background-color: white;
+  margin-bottom: 10px;
+
+}
+.payment_container{
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  padding: 10px 8px;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon_down{
+  width: 12px;
+  height: 10px;
+  color: #f51042;
+}
+.icon_main{
+  color: #f51042;
+  width: 16px;
+  height: 16px;
+}
+
+.title_method{
+  color: #f51042;
+  font-size: 14px;
+}
+
+/* DETALLES OCULTOS */
+.details{
+  display: grid;
+  padding: 7px 12px;
+  border-top: 1px solid #f1f3f4;
+}
+.details_title_card{
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.details_subtitle_card{
+  font-size: 12px;
+}
+
+.card_form_container{
+  margin-top: 10px;
+}
+.card_label{
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+
+}
+
+.input_container{
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  border: 1px solid #f0f3f4;
+  align-items: center;
+  border-radius: 5px;
+
+}
+
+.input_card{
+  padding: 3px 10px;
+  border-right: 1px solid #f0f3f4;
+  font-size: 14px;
+  
+}
+.icon_card{
+  width: 16px;
+  height: 16px;
+  justify-self: center;
+}
+
+.caducity{
+  margin-top: 10px;
+}
+
+.caducity p {
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.caducity input{
+  border: 1px solid #f5f6f7;
+  width: 100%;
+  padding: 3px 10px;
+  font-size: 14px;
+}
+
+.cvv{
+  margin-top: 10px;
+
+}
+
+.cvv p {
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.cvv input{
+  border: 1px solid #f5f6f7;
+  width: 100%;
+  padding: 3px 10px;
+  font-size: 14px;
+}
+
+.name_card{
+  margin-top: 10px;
+
+}
+
+.name_card p {
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.name_card input{
+  border: 1px solid #f5f6f7;
+  width: 100%;
+  padding: 3px 10px;
+  font-size: 14px;
+}
+
+.save_card{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 7px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.save_card input{
+  width: 15px;
+  height: 15px;
+  justify-self: center;
+  accent-color: #f51042;
+}
+.save_card p{
+  font-size: 12px;
+  font-weight: 600;
+  
+}

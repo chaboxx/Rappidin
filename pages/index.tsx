@@ -18,13 +18,14 @@ const Home: NextPage = () => {
   return (
     <>
       <Layout title='Rappidin Home Page - Comidas'>
-
+        
         <SliderCategorysFood  categories={categories}/>
         <RestaurantMainCards  restaurants={restaurants}/>
         <FeaturesMain/>
         <PopularMain popular={popular}/>
         <SalesMain mostSales={mostSales}/>
         <NavigationBar/>
+      
       </Layout>
     </>
   )

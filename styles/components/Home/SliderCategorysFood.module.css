@@ -3,11 +3,12 @@
 	margin: auto;
 	overflow:hidden;
 	position: relative;
-  width: 100%;
   padding: 0 10px;
   padding-bottom: 17px;
   border-bottom: 1px solid #f1f3f4;
   padding-top: 7px;
+
+
 }
 
 .category_box{

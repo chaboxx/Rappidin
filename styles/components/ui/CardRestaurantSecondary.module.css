@@ -3,6 +3,7 @@
 .card_container{
   border-radius: 12px;  
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+
 }
 .image{
   background-image: url("../../../public/popular1.png");

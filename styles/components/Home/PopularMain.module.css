@@ -2,19 +2,41 @@
   padding-top: 10px;
   margin-top: 15px;
   display: grid;
+  
 }
 .image{
 
   background-image: url("../../../public/banner.png");
   background-size: cover;
-  width: 450px;
-  height: 250px;
+  width: 90%;
+  height: 240px;
   border-radius: 15px;
   justify-self: center;
   margin-top: 10px;
   margin-bottom: 15px;
 }
-
+/* RESPONSIVE IMG */
+@media screen and (max-width:450px) {
+  .image{
+    height: 210px;
+  }
+}
+@media screen and (max-width:390px) {
+  .image{
+    height: 185px;
+  }
+}
+@media screen and (max-width:360px) {
+  .image{
+    height: 165px;
+  }
+}
+@media screen and (max-width:330px) {
+  .image{
+    height: 155px;
+    
+  }
+}
 .description{
   display: grid;
   grid-template-columns: 1fr 1fr;

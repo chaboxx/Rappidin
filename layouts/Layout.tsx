@@ -16,7 +16,7 @@ export const Layout : FC<Props> = ({ children ,title,description}) => {
       <Head>
         
         <title> {title || "Rappidin"} </title>
-        <meta name='author' content='Rodrigo Cueva Pastor' />
+        <meta name='author' content="@chaboxxsama" />
         <meta name='description' content={description || "Rappidin Comidas Online"} />
          
       </Head>

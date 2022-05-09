@@ -12,6 +12,7 @@ interface Props {
 
 
 export const PopularMain :FC<Props> = ({popular}) => {
+  
   return (
     <section className={styles.popular_main_container}>
       <div className={styles.description}>

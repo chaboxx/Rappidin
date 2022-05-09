@@ -18,6 +18,7 @@
   grid-template-columns: 1fr 1fr;
   
 }
+
 .image_top p{
   background-color: #ffc107;
   font-size: 12px;
@@ -117,4 +118,32 @@
 
 .off{
   font-size: 12px;
+}
+@media screen and (max-width:440px) {
+  .image{
+    height: 135px;
+  }
+  .offer_container{
+    width: 60%;
+    gap: 6px;
+  }
+}
+
+@media screen and (max-width:360px) {
+  .image{
+    height: 105px;
+  }
+  .offer_container{
+    width: 65%;
+    gap: 5px;
+  }
+}
+@media screen and (max-width:330px) {
+  .image{
+    height: 105px;
+  }
+  .offer_container{
+    width: 70%;
+    gap: 5px;
+  }
 }

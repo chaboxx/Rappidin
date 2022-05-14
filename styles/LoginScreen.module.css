@@ -1,0 +1,115 @@
+.login_screen_container{
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+
+  justify-items: center;
+}
+
+.content_container{
+  width: 90%;
+  height: 100%;
+  position: relative;
+  z-index: 19;
+  padding-top: 20px;
+}
+
+
+.video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.input_container{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.icon{
+  display: grid;
+  background-color: #eee;
+  width: 40px;
+  height: 45px;
+  padding: 7px;
+  border-radius: 7px 0 0 7px;
+}
+
+.input{
+  height: 45px;
+  border-radius: 0 7px 7px 0;
+  padding: 0 10px;
+}
+.input:focus{
+  outline: none;
+}
+
+.button{
+  display: grid;
+  width: 100%;
+  background-color: #f20558;
+  border-radius: 8px;
+  color: white;
+  align-items: center;
+  height: 45px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.or_container{
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  margin-top: 15px;
+  position: relative;
+
+}
+
+.or_container::before{
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #fafafa;
+  position: absolute;
+  top: 50%;
+}
+.or{
+  background-color: #1c1b1d;
+  color: #eaeaea;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 19;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.google_container{
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  background-color: white;
+  padding: 0 10px;
+  height: 45px;
+  border-radius: 7px;
+  margin-top: 13px;
+}
+
+.google_icon{
+  width: 25px;
+  height: 25px;
+}
+.google_label{
+  justify-self: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+

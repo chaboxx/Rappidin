@@ -9,18 +9,22 @@ import styles from "../../styles/RegisterScreen.module.css";
 const RegisterScreen : NextPage = () => {
   return (
     <section className={styles.register_screen_container}>
+      <video className={styles.video_background} loop muted autoPlay>
+        <source src="/video_rappidin.mp4"/>
+        Your browser doesn't suport video tags.
+      </video>
       <div className={styles.content_container}>
 
       
         <div className={styles.input_container}>
           <AiOutlineUser className={styles.icon} />
-          <input className={styles.input}  type="password" placeholder="Name"/>
+          <input className={styles.input}  type="text" placeholder="Name"/>
         
         </div>      
 
         <div className={styles.input_container}>
           <AiOutlineLock className={styles.icon} />
-          <input className={styles.input}  type="text" placeholder="Password"/>
+          <input className={styles.input}  type="password" placeholder="Password"/>
         </div>
         
         <div className={styles.input_container}>

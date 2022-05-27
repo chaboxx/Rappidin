@@ -1,12 +1,12 @@
 
-export const usersModel = ( ) =>{
-
-
-  const userModelQuery = `
+export const userSchemas = {
+  
+  createTableUserQuery : `
     create table Users (
       id serial primary key,
       name varchar(64),
-      email varchar(128),
+      email varchar(128) unique,
+      password varchar(64),
       tel varchar(32),
       logo varchar(64),
       Orders integer[],
@@ -15,43 +15,28 @@ export const usersModel = ( ) =>{
       Cart integer,
       Prime integer
     )
-  `
+  `,
+  createTablePrimeQuery : `
   
-  const primeModelQuery = `
     create table Primes (
       id serial primary key,
       has_prime boolean,
       date_init varchar(128),
       Card integer,
-      payments text[],
+      payments text[]
 
     )
-  `
-
-  const cardsModelQuery = `
-    
+  `,
+  createTableCardsQuery : `
     create table Cards (
       id serial primary key,
       id_card varchar(64),
-      type varchar(64)
+      type varchar(64),
       name varchar(64),
       firts_4_digits varchar(16),
-      last_4_digits varchar(16),
+      last_4_digits varchar(16)
     )
-  `
-
-  const aditionalModelQuery = `
-    
-    create table Aditionals (
-      id serial primary key,
-      name varchar(64),
-      price money,
-      max_portions smallserial,
-      aditionals text[]
-    )
-      
-  `
-
+  `,
 
 
 }

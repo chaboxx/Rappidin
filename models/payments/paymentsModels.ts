@@ -6,7 +6,7 @@ export const paymentsModel = ( ) =>{
     create table Carts (
       id serial primary key,
       Menus_Picked integer[],
-      total_price money,
+      total_price money
 
     
     )

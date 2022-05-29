@@ -10,27 +10,54 @@ interface Response{
 }
 
 
-const filterRequest = ( req: NextApiRequest, res: NextApiResponse<Response> ) =>{
-
-  if ( req.method ==="POST" ){
-
-    return loginUser(req,res);
+const filterValidateMiddlewareRequest = ( req: NextApiRequest, res: NextApiResponse<Response> ) =>{
+  try {
+    if ( req.method ==="POST" ){
+  
+      const { emailTel , password } = req.body;
+      
+      if ( !emailTel ){
+        return res.status(400).json({
+          ok : false,
+          msg : "Email or tel is needed",
+        })
+      }
+  
+      if ( !password ){
+        return res.status(400).json({
+          ok : false,
+          msg : "Password is needed",
+        })
+      }
+      //MIDDELWARE
+  
+      return loginUser(req,res);
+    }
+    
+    throw new Error("Wrong Petition")
+  } catch (error) {
+    console.log(error);
+    return res.status(501).json({
+      ok: false,
+      msg: "Wrong Petition",
+    })
   }
   
-  return res.status(501).json({
-    ok: false,
-    msg: "Wrong Petition",
-  })
 
 }
 
 const loginUser = async ( req: NextApiRequest, res: NextApiResponse<Response> ) =>{
 
   try {
+    // TODO: REQUIERE VALIDACION DE DATOS QUE VIENEN EMAIL DEBE SER EMAIL , TEL DEBE SER TEL... 
+    //
 
-    const { email , tel , password } = req.body;
+    const { emailTel , password } = req.body;
 
-    const data = await database.query(`select id , password from users where email=$1 or tel=$2`,[email,tel]);
+    
+    
+
+    const data = await database.query(`select id , password from users where email=$1 or tel=$2`,[emailTel,emailTel]);
     console.log({data});
     if ( data.rowCount !== 1 ){
       return res.status(400).json({
@@ -38,11 +65,11 @@ const loginUser = async ( req: NextApiRequest, res: NextApiResponse<Response> ) 
         msg : "User doenst exits",
       })
     }
-
+    
     const { id , password : userPassword } = data.rows[0];
 
     if ( userPassword !== password ){
-      return res.status(400).json({
+      return res.status(400).json({ 
         ok : false,
         msg : "Wrong password try again please",
       })
@@ -50,7 +77,7 @@ const loginUser = async ( req: NextApiRequest, res: NextApiResponse<Response> ) 
 
     const token = jwt({
       id : id,
-      emailTel:email,
+      emailTel:emailTel,
     });
 
     return res.status(200).json({
@@ -68,4 +95,4 @@ const loginUser = async ( req: NextApiRequest, res: NextApiResponse<Response> ) 
   }
 }
 
-export default filterRequest;
+export default filterValidateMiddlewareRequest;

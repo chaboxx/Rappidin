@@ -26,9 +26,8 @@ export const AuthProvider : FC<Props> = ({children}) => {
   const session = useSession();
   
   useEffect(() => {
-    console.log({session});
     setUser(session.data?.user as User)
-  }, [])
+  }, [session])
   
 
 

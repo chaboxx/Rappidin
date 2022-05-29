@@ -7,7 +7,6 @@ import { AuthProvider } from '../context/auth/AuthProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-
   return (
     <SessionProvider>
       <AuthProvider>

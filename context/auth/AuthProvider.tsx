@@ -35,7 +35,7 @@ export const AuthProvider : FC<Props> = ({children}) => {
     console.log({emailTel,password});
     return false;
   }
-
+  
   return (
     <AuthContext.Provider
       value={{

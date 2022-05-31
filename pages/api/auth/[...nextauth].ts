@@ -39,8 +39,17 @@ export default NextAuth({
   },
   pages: {
   
-    signIn : "/login"
+    signIn :  "/login",
+    error :   "/login",
+    signOut :  "/"
   },
+  
+  session: {
+    maxAge : 2592000,
+    strategy : "jwt",
+    updateAge : 86400,
+  },
+
   callbacks: {
 
     async jwt({ token, account ,user }){

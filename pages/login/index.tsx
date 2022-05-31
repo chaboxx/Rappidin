@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { FormEvent, useState } from "react";
+import { FormEvent, MouseEvent, useState } from "react";
 
 import { getSession, signIn } from "next-auth/react";
 
@@ -20,6 +20,13 @@ const LoginScreen : NextPage = () => {
     e.preventDefault();
     await signIn("credentials",{ email , password });
   }
+
+  const singUpGitHub = async ( e : MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
+    e.preventDefault();
+    await signIn("github");
+
+  }
+
 
   return (
     <section className={styles.login_screen_container}>
@@ -46,7 +53,7 @@ const LoginScreen : NextPage = () => {
           <p className={styles.or}>OR</p>
         </div>
 
-        <div className={styles.google_container}>
+        <div onClick={singUpGitHub} className={styles.google_container}>
           <FcGoogle className={styles.google_icon}/>
           <p className={styles.google_label}>Google</p>
         </div>

@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { database } from '../../../database'
-import { jwt } from '../../../helpers/jwt/jwt';
-import { validarJwt } from '../../../helpers/jwt/validar-jwt';
+import { jwt } from '../../../utils/jwt/jwt';
+import { validarJwt } from '../../../utils/jwt/validar-jwt';
 
 interface Response{
   ok : boolean;

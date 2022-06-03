@@ -1,6 +1,6 @@
 import { NextApiRequest , NextApiResponse } from "next";
 import { database } from '../../../database';
-import { jwt } from "../../../helpers/jwt/jwt";
+import { jwt } from "../../../utils/jwt/jwt";
 
 
 interface Response{

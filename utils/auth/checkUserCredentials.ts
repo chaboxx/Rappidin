@@ -1,5 +1,5 @@
 
-import { database } from "./";
+import { database } from "../../database";
 
 
 export const checkUserCredentials = async( email:string , password:string )=>{
@@ -26,7 +26,7 @@ export const checkUserOAuthCredentials = async( email:string,name:string) =>{
   const data = await database.query(`select id,name,password,tel from users where email=$1`,[email]);
 
   if ( data.rowCount === 1 ){
-    const { id, name :nameUser , tel } = data.rows[0];
+    const { id , tel } = data.rows[0];
     return {
       id,
       email,

@@ -1,4 +1,4 @@
-
+import { FC } from "react";
 
 import { FaBus } from "react-icons/fa";
 import { BsTelephone } from "react-icons/bs";
@@ -6,9 +6,16 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BiLockAlt } from "react-icons/bi";
 import { MdNavigateNext } from "react-icons/md";
 
+import { User } from "../../interfaces/user";
+
 import styles from "../../styles/components/profile/InformationProfile.module.css";
 
-export const InformationProfile = () => {
+interface Props {
+  user : User;
+}
+
+export const InformationProfile : FC<Props> = ({user}) => {
+
   return (
     <div className={styles.information_profile_container}>
       <div className={styles.info_box}>

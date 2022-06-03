@@ -65,7 +65,7 @@ const LoginScreen : NextPage = () => {
 
 
 export const getServerSideProps : GetServerSideProps = async ({req}) =>{
-  console.log({req});
+  
   const session = await getSession({req});
 
   if ( session ){

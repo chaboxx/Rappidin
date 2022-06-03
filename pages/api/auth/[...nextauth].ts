@@ -2,8 +2,8 @@ import NextAuth from "next-auth";
 
 import GithubProvider from "next-auth/providers/github";
 import Credentials from "next-auth/providers/credentials";
-import { checkUserCredentials, checkUserOAuthCredentials } from "../../../database/dbUsers";
 
+import { checkUserCredentials, checkUserOAuthCredentials } from "../../../utils/auth/checkUserCredentials";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -33,9 +33,9 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
-
   jwt:{
     // secret: process.env.NEXTAUTH_SECRET
+
   },
   pages: {
   
@@ -75,7 +75,6 @@ export default NextAuth({
 
       session.accessToken = token.accessToken;
       session.user = token.user as any;
-      console.log({session});
       return session;
     }
   

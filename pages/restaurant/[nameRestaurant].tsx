@@ -3,8 +3,46 @@ import { Layout } from '../../layouts/Layout';
 import { AiOutlineStar } from "react-icons/ai";
 
 import styles from "../../styles/restaurant/RestaurantScreen.module.css";
+import { MenuList } from '../../components/restaurant/MenuList';
+
+
+const menus = [
+  {
+    categoria: "Brasas",
+    nombre : "Pollo a la brasa",
+    precio : 98,
+    descripcion : "Pollo con papas fritas, ensalada clásica, salsas, gaseosa 1.5l, 4 porciones de torta."
+  },
+  {
+    categoria: "sd",
+    nombre : "Pollo a la bbq",
+    precio : 128,
+    descripcion : "Pollo con papas fritas, ensalada clásica, salsas, gaseosa 1.5l, 4 porciones de torta."
+  },
+  {
+    categoria: "sd",
+    nombre : "1/4 Pollo a la brasa",
+    precio : 108,
+    descripcion : "Pollo con papas fritas, ensalada clásica, salsas, gaseosa 1.5l, 4 porciones de torta."
+  },
+  {
+    categoria: "Picantes",
+    nombre : "1/4 Pollo a la brasa",
+    precio : 380,
+    descripcion : "Pollo con papas fritas, ensalada clásica, salsas, gaseosa 1.5l, 4 porciones de torta."
+  },
+  {
+    categoria: "Brasas",
+    nombre : "1/4 Pollo a la brasa",
+    precio : 778,
+    descripcion : "Pollo con papas fritas, ensalada clásica, salsas, gaseosa 1.5l, 4 porciones de torta."
+  },
+
+]
 
 const RestaurantScreen = () => {
+
+
   return (
     <>
       <Layout title="Restaurante" description="Restaurante Detalles-Descripcion">
@@ -35,6 +73,7 @@ const RestaurantScreen = () => {
             </div>
           </div>
         </div>
+        <MenuList menus={menus}/>
       </Layout>
     </>
   )

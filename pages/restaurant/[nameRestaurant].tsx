@@ -1,9 +1,12 @@
 import { Layout } from '../../layouts/Layout';
 
+import { RatingsComponent } from '../../components/restaurant/RatingsComponent';
+import { MenuList } from '../../components/restaurant/MenuList';
+
 import { AiOutlineStar } from "react-icons/ai";
 
+
 import styles from "../../styles/restaurant/RestaurantScreen.module.css";
-import { MenuList } from '../../components/restaurant/MenuList';
 
 
 const menus = [
@@ -39,7 +42,40 @@ const menus = [
   },
 
 ]
-
+const comentaries = [
+  {
+    name : "RODRIGO CUEVA.",
+    date : "Tue,20 Mar 2022",
+    comentary : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.",
+    rating : 4.8,
+    likes : 856,
+    dislikes : 158,
+  },
+  {
+    name : "RODRIGO CUEVA.",
+    date : "Tue,20 Mar 2022",
+    comentary : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.",
+    rating : 4.2,
+    likes : 856,
+    dislikes : 1358,
+  },
+  {
+    name : "RODRIGO CUEVA.",
+    date : "Tue,20 Mar 2022",
+    comentary : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.",
+    rating : 1.8,
+    likes : 2856,
+    dislikes : 158,
+  },
+  {
+    name : "RODRIGO CUEVA.",
+    date : "Tue,20 Mar 2022",
+    comentary : "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.",
+    rating : 2.8,
+    likes : 256,
+    dislikes : 158,
+  }
+]
 const RestaurantScreen = () => {
 
 
@@ -74,6 +110,7 @@ const RestaurantScreen = () => {
           </div>
         </div>
         <MenuList menus={menus}/>
+        <RatingsComponent comentaries={comentaries}/>
       </Layout>
     </>
   )

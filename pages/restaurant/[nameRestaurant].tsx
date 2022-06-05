@@ -7,6 +7,8 @@ import { AiOutlineStar } from "react-icons/ai";
 
 
 import styles from "../../styles/restaurant/RestaurantScreen.module.css";
+import { ProceedCartComponent } from '../../components/restaurant/ProceedCartComponent';
+import { Cart } from '../../interfaces/cart';
 
 
 const menus = [
@@ -76,6 +78,37 @@ const comentaries = [
     dislikes : 158,
   }
 ]
+
+
+const cart : Cart = {
+  id : "chaboxx159@gmail.com",
+  productos: [
+    {
+      categoria : "Brasas",
+      nombre: "Pollo a la brasa",
+      descripcion : "Pollo riquisimo de ga :v",
+      precio : 95,
+    },
+    {
+      categoria : "Brasas",
+      nombre: "Pollo a la brasa",
+      descripcion : "Pollo riquisimo de ga :v",
+      precio : 95,
+    },
+    {
+      categoria : "Brasas",
+      nombre: "Pollo a la brasa",
+      descripcion : "Pollo riquisimo de ga :v",
+      precio : 95,
+    },
+    {
+      categoria : "Brasas",
+      nombre: "Pollo a la brasa",
+      descripcion : "Pollo riquisimo de ga :v",
+      precio : 95,
+    }
+  ]
+}
 const RestaurantScreen = () => {
 
 
@@ -111,6 +144,8 @@ const RestaurantScreen = () => {
         </div>
         <MenuList menus={menus}/>
         <RatingsComponent comentaries={comentaries}/>
+        
+        <ProceedCartComponent cart={cart}/>
       </Layout>
     </>
   )

@@ -3,13 +3,14 @@ import { Comentaries } from "../interfaces/comentaires";
 
 
 
-type Distribution = {
+interface Distribution {
   "5_starts" : number;
   "4_starts" : number;
   "3_starts" : number;
   "2_starts" : number;
   "1_starts" : number;
 }
+
 export const useReviews = (comentaries : Comentaries[]) =>{
 
   const [ totalRatings ] = useState<number>(comentaries.length);

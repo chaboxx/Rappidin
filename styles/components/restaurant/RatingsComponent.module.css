@@ -4,6 +4,7 @@
 
 .star_empty{
   color: black;
+  initial-letter: 3.0;
 }
 
 
@@ -12,6 +13,7 @@
   height: 5px;
   background-color: #e9ecef;
   position: relative;
+  initial-letter: 3.0;
 }
 
 .bar_fill_rating{

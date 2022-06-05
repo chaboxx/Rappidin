@@ -12,13 +12,17 @@ import styles from "../../styles/components/restaurant/RatingsComponent.module.c
 interface Props {
   comentaries : Comentaries[];
 }
+
 export const RatingsComponent : FC<Props> = ({comentaries}) => {
 
-  const { calification , distribution , totalRatings } = useReviews(comentaries);
+  const { calification , distribution, totalRatings } = useReviews(comentaries);
 
   const barRating = (e:HTMLDivElement | null,distribute : string) =>{
+    
+    // let distributionAux = distribution as any;
+    const valorStarts : number = ( distribution as any )[distribute];
 
-    const paintedPorcentage = distribution[distribute] / totalRatings * 100;
+    const paintedPorcentage = valorStarts / totalRatings * 100;
 
     if ( e ){
       const child = e?.childNodes[0] as HTMLElement;
@@ -45,17 +49,16 @@ export const RatingsComponent : FC<Props> = ({comentaries}) => {
         </div>
         <p>{totalRatings}</p>
       </div>
-      <p>Rated { calification.toFixed(1) } out of 5</p>
+      <p style={{initialLetter:"4.5"}}>Rated { calification.toFixed(1) } out of 5</p>
 
       <div>
         {
           Object.keys(distribution).map((distribute)=>(
             <div>
               <p>{distribute.replace(`_`," ").toLocaleUpperCase()}</p>
-              <div className={styles.bar_rating} ref={(e)=>barRating(e,distribute)}>
-                <div className={styles.bar_fill_rating}></div>
-              </div>
-              <p>{ (distribution[distribute] / totalRatings * 100).toFixed(1) } % </p>
+              
+              <progress value={((distribution as any)[distribute] / totalRatings * 100)} max="100"></progress>
+              <p>{ ((distribution as any)[distribute] / totalRatings * 100).toFixed(1) } % </p>
             </div>
           ))
         }

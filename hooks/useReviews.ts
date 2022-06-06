@@ -14,7 +14,7 @@ interface Distribution {
 export const useReviews = (comentaries : Comentaries[]) =>{
 
   const [ totalRatings ] = useState<number>(comentaries.length);
-  const [ calification, setCalification ] = useState<number>(0);
+  // const [ calification, setCalification ] = useState<number>(0);
   const [ distribution, setDistribution ] = useState<Distribution>({} as Distribution);
   
   useLayoutEffect(() => {
@@ -47,7 +47,7 @@ export const useReviews = (comentaries : Comentaries[]) =>{
     
     calificationAux = sumCalifications/comentaries.length;
     
-    setCalification(calificationAux);
+    // setCalification(calificationAux);
     setDistribution(distributionAux);
 
   }, [])
@@ -57,7 +57,7 @@ export const useReviews = (comentaries : Comentaries[]) =>{
 
   return {
     totalRatings,
-    calification,
+    // calification,
     distribution,
   }
 }

@@ -12,14 +12,15 @@ import styles from "../../styles/components/restaurant/RatingsComponent.module.c
 
 interface Props {
   comentaries : Comentaries[];
+  calification : number;
 }
 
-export const RatingsComponent : FC<Props> = ({comentaries}) => {
+export const RatingsComponent : FC<Props> = ({comentaries, calification}) => {
 
-  const { calification , distribution, totalRatings } = useReviews(comentaries);
+  const { distribution, totalRatings } = useReviews(comentaries);
 
   return (
-    <section className={styles.ratings_component_container}>
+    <section style={{marginBottom:"75px"}} className={styles.ratings_component_container}>
       <h6 className={styles.ratings_component_title}>Ratings and Reviews</h6>
       <div className={styles.starts_container}>
         <div className={styles.starts_icons_list}>

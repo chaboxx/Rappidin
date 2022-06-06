@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
 
 import axios from "axios";
 
@@ -9,9 +10,10 @@ import { RiFlag2Fill } from "react-icons/ri";
 import { AiOutlineUser ,AiOutlineLock } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
-import styles from "../../styles/RegisterScreen.module.css";
-import { useRouter } from "next/router";
 
+import styles from "../../styles/RegisterScreen.module.css";
+
+ 
 const RegisterScreen : NextPage = () => {
 
   const { handleSubmit, register, formState: { errors } } = useForm();

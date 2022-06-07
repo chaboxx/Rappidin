@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AsyncThunk, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { loginUser, singUpUser } from "../../reducers/authReducers";
 
@@ -9,8 +9,11 @@ import { Pedido } from "../../interfaces/pedido";
 
 
 
+interface USER_INITITAL_STATE_INTERFACE extends User{
+  isLoading : boolean;
+}
 
-const USER_INITITAL_STATE : User= {
+const USER_INITITAL_STATE : USER_INITITAL_STATE_INTERFACE= {
   id : "",
   name : "",
   email : "",
@@ -18,6 +21,7 @@ const USER_INITITAL_STATE : User= {
   isLogged : false,
   cart: {} as Cart,
   pedidos : [] as Pedido[],  
+  isLoading : true,
 }
 
 
@@ -25,7 +29,6 @@ const USER_INITITAL_STATE : User= {
 export const singUpUserThunk = createAsyncThunk("authProvider/signUpUser", singUpUser );
 
 export const loginUserThunk = createAsyncThunk("authProvider/loginUser", loginUser );
-
 
 
 
@@ -38,9 +41,34 @@ export const authSlice = createSlice({
 
   },
   extraReducers : {
-    [singUpUserThunk.fulfilled as any]:(state : any,action : any)=>{
-      state.name = action.payload;
-      console.log({state});
+    [singUpUserThunk.pending as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
+      console.log({state,action});
+      state.isLoading = true;
+
+      // return action.payload;
+     
+    },
+    [singUpUserThunk.fulfilled as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
+      console.log({state,action});
+      const { ok , msg , data } = action.payload;
+      
+      if ( ok ){
+        const { email,tel } = data[0];
+  
+        state.email=email;
+        state.tel = tel;
+        state.isLoading = false;
+        // return action.payload;
+        //NO SE PUEDE RETORNAR ASI QUE POSIBLEMENTE TODO DEBE SER CON ESTADO
+      }
+
+    
+    },
+    [singUpUserThunk.rejected as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
+      console.log({state,action});
+      state.isLoading = false;
+      // return action.payload;
+      
     },
   }
 })

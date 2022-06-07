@@ -13,15 +13,18 @@ const { apiConnection } = mainApiConection();
 
 export const singUpUser  = async ({ email, password,tel } :SignUpUserPayload ) => {
 
-  
-  const resp = await apiConnection.post("/api/auth/register-user",{
-    email,
-    tel,
-    password,
-  });
-
-
-  return resp.data;
+  try {
+    const resp = await apiConnection.post("/api/auth/register-user",{
+      email,
+      tel,
+      password,
+    });
+    return resp.data;
+    
+  } catch (error) {
+    throw new Error("Error. Try Again Please.")
+    
+  }
 
 
 

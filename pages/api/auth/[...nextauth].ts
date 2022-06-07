@@ -23,8 +23,13 @@ export default NextAuth({
         }
       },
       async authorize(credentials){
-
-        return await checkUserCredentials(credentials!.email,credentials!.password)
+        try {
+          return await checkUserCredentials(credentials!.email,credentials!.password)
+          
+        } catch (error) {
+          console.log({error});
+          return null;
+        }
       }
     }),
     GithubProvider({

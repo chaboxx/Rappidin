@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { signIn } from "next-auth/react";
 
 import { useForm } from "react-hook-form";
-
-import axios from "axios";
 
 import { RiFlag2Fill } from "react-icons/ri";
 import { AiOutlineUser ,AiOutlineLock } from "react-icons/ai";
@@ -13,9 +10,9 @@ import { FcGoogle } from "react-icons/fc";
 
 import styles from "../../styles/RegisterScreen.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { singUpUserThunk } from "../../store/slices/AuthSlices";
-import { ThunkDispatch } from "@reduxjs/toolkit";
-import { User } from "../../interfaces/user";
+import { loginUserThunk, singUpUserThunk } from "../../store/slices/AuthSlices";
+import { signIn } from "next-auth/react";
+import { loginUser } from "../../reducers/authReducers";
 
  
 const RegisterScreen : NextPage = () => {
@@ -25,32 +22,27 @@ const RegisterScreen : NextPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
+  // const {  } = useSelector((store:any)=>store.authProvider);
+
   const handleRegisterUser = async ( values : any ) =>{
-    console.log({values});
-    // const resp  = await axios.post("/api/auth/register-user",{
-    //   ...values,
-    //   tel : values.phoneNumber,
-    // },{
-    //   headers: {
-    //     "Content-Type" : "application/json",   
-    //   }
-    // });
-
-    // if ( resp.data.ok ){
-    //   signIn("credentials",{ email : resp.data.data.email , password : resp.data.data.password   })
-    //   router.push("/")
-    //   return;
-    // }
     
-    // alert("Error en el registro");
-
     const { email ,phoneNumber ,password } = values;
+    
+    try {
+      await (dispatch as any)(singUpUserThunk({
+        email,
+        password,
+        tel : phoneNumber,
+      }))
+      //FUNCIONA PERO FALTA RECUPERAR MENSAJES DE LA API Y COMBINAR MAS DE UN METODO AYNSCRONO (COMBINE REDUCERS)
+      console.log({email,password});
+      await (dispatch as any)(loginUserThunk({emailTel:email,password}));
+      router.push("/");
 
-    (dispatch as any)(singUpUserThunk({
-      email,
-      password,
-      tel : phoneNumber,
-    }));
+    } catch (error) {
+      alert("ERROR")
+    }
+
   }
 
   return (

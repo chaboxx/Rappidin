@@ -12,33 +12,45 @@ import { FcGoogle } from "react-icons/fc";
 
 
 import styles from "../../styles/RegisterScreen.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { singUpUserThunk } from "../../store/slices/AuthSlices";
+import { ThunkDispatch } from "@reduxjs/toolkit";
+import { User } from "../../interfaces/user";
 
  
 const RegisterScreen : NextPage = () => {
 
   const { handleSubmit, register, formState: { errors } } = useForm();
-
+  // const { singUpUserThunk } = useSelector((store : any)=>store.auth)
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleRegisterUser = async ( values : any ) =>{
     console.log({values});
-    const resp  = await axios.post("/api/auth/register-user",{
-      ...values,
-      tel : values.phoneNumber,
-    },{
-      headers: {
-        "Content-Type" : "application/json",   
-      }
-    });
+    // const resp  = await axios.post("/api/auth/register-user",{
+    //   ...values,
+    //   tel : values.phoneNumber,
+    // },{
+    //   headers: {
+    //     "Content-Type" : "application/json",   
+    //   }
+    // });
 
-    if ( resp.data.ok ){
-      signIn("credentials",{ email : resp.data.data.email , password : resp.data.data.password   })
-      router.push("/")
-      return;
-    }
+    // if ( resp.data.ok ){
+    //   signIn("credentials",{ email : resp.data.data.email , password : resp.data.data.password   })
+    //   router.push("/")
+    //   return;
+    // }
     
-    alert("Error en el registro");
+    // alert("Error en el registro");
 
+    const { email ,phoneNumber ,password } = values;
+
+    (dispatch as any)(singUpUserThunk({
+      email,
+      password,
+      tel : phoneNumber,
+    }));
   }
 
   return (

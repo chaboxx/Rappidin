@@ -4,11 +4,13 @@ import { useSession } from "next-auth/react";
 
 import { AuthContext } from "./AuthContext";
 
+import { useDispatch, useSelector } from "react-redux";
 
 import { User } from "../../interfaces/user";
 import { Cart } from "../../interfaces/cart";
 import { Pedido } from "../../interfaces/pedido";
 import { mainApiConection } from "../../utils/axios/axios";
+
 // import { AxiosResponse } from "axios";
 
 
@@ -31,10 +33,18 @@ export const AuthProvider : FC<Props> = ({children}) => {
   const [user, setUser] = useState<User>(USER_INITITAL_STATE);
   const session = useSession();
   
+  // const { cart,email,id,isLogged,name,pedidos,tel } = useSelector((store : any) => store.auth);
+  // console.log({ cart,email,id,isLogged,name,pedidos,tel });
+
+  // const dispatch = useDispatch();
+
   useEffect(() => {
     setUser(session.data?.user as User)
   }, [session])
   
+  // useEffect(() => {
+  //   dispatch(signUp(""));
+  // }, [])
 
 
   const loginUser = ( emailTel : string , password : string ) =>{

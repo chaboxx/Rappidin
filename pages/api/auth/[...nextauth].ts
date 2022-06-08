@@ -44,9 +44,10 @@ export default NextAuth({
   },
   pages: {
   
-    signIn :  "/login",
-    error :   "/login",
-    signOut :  "/"
+    signIn :  "/register",
+    // error :   "/login",
+    // signOut :  "/",
+    // newUser : "/"
   },
   
   session: {

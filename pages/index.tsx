@@ -1,7 +1,4 @@
 import type { NextPage } from 'next'
-import { useContext } from 'react';
-
-import { AuthContext } from '../context/auth/AuthContext';
 
 import { FeaturesMain } from '../components/Home/FeaturesMain';
 import { PopularMain } from '../components/Home/PopularMain';
@@ -10,6 +7,7 @@ import { SalesMain } from '../components/Home/SalesMain';
 import { SliderCategorysFood } from '../components/Home/SliderCategorysFood';
 import { NavigationBar } from '../components/ui/NavigationBar';
 import { Layout } from '../layouts/Layout';
+import { useSelector } from 'react-redux';
 
 
 const categories = ["Shawarma","Fries","Pasta","Pizza","Rools","Chaat","Chaap","Chicken"];
@@ -19,7 +17,6 @@ const mostSales = ["The Sakafo Restaurant","Thai Famous Cuisine","Bite Me Now Sa
 
 
 const Home: NextPage = () => {
-
   return (
     <>
       <Layout title='Rappidin Home Page - Comidas'>      

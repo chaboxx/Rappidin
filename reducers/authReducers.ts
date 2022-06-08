@@ -19,7 +19,13 @@ export const singUpUser  = async ({ email, password,tel } :SignUpUserPayload ) =
       tel,
       password,
     });
-    return resp.data;
+    
+    // const resp = await signIn("credentials",{ redirect:false, email , password });
+
+
+    return resp;
+
+    // return resp;
     
   } catch (error) {
     throw new Error("Error. Try Again Please.")
@@ -38,12 +44,16 @@ interface LoginUserPayload {
 
 export const loginUser = async({ emailTel,password } : LoginUserPayload ) =>{
 
-
-  const resp = await signIn("credentials",{ emailTel , password });
-
-
-  return resp;
-
-
+  try {
+    
+    const resp = await signIn("credentials",{ redirect:false, email:emailTel , password });
+    return resp;
+  
+    
+    
+  } catch (error) {
+    throw new Error("Error. Try Again Please.")
+    
+  }
 
 }

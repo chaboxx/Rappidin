@@ -11,6 +11,14 @@ import { Pedido } from "../../interfaces/pedido";
 
 interface USER_INITITAL_STATE_INTERFACE extends User{
   isLoading : boolean;
+  signUp : {
+    error : string;
+    isLoading : boolean;
+  };
+  login : {
+    error : string;
+    isLoading : boolean;
+  }
 }
 
 const USER_INITITAL_STATE : USER_INITITAL_STATE_INTERFACE= {
@@ -22,6 +30,14 @@ const USER_INITITAL_STATE : USER_INITITAL_STATE_INTERFACE= {
   cart: {} as Cart,
   pedidos : [] as Pedido[],  
   isLoading : true,
+  signUp : {
+    error : "",
+    isLoading : false,
+  },
+  login : {
+    error : "",
+    isLoading : false,
+  }
 }
 
 
@@ -43,30 +59,33 @@ export const authSlice = createSlice({
   extraReducers : {
     [singUpUserThunk.pending as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
       console.log({state,action});
-      state.isLoading = true;
-
+      // state.isLoading = true;
+      state.signUp.isLoading = true;
       // return action.payload;
      
     },
     [singUpUserThunk.fulfilled as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
-      console.log({state,action});
-      const { ok , msg , data } = action.payload;
       
-      if ( ok ){
-        const { email,tel } = data[0];
-  
-        state.email=email;
-        state.tel = tel;
-        state.isLoading = false;
+      // const { ok , msg , data } = action.payload;
+      
+      // const { email,tel } = data[0];
+      
+      // state.email=email;
+      // state.tel = tel;
+      // state.isLoading = false;
+      console.log({done : "DONE"});
         // return action.payload;
         //NO SE PUEDE RETORNAR ASI QUE POSIBLEMENTE TODO DEBE SER CON ESTADO
-      }
-
-    
+      
+      state.signUp.isLoading = false;
+      
+      
     },
     [singUpUserThunk.rejected as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
       console.log({state,action});
-      state.isLoading = false;
+      // state.isLoading = false;
+      state.signUp.isLoading = false;
+      state.signUp.error = "Error Intente de Nuevo Porfavor"
       // return action.payload;
       
     },
@@ -74,6 +93,7 @@ export const authSlice = createSlice({
 })
 
 
+// export const aux = singUpUserThunk.
 //EXPORTACION DE ACCIONES SYNC
 // export const { singUpUserAction } = authSlice.actions;
 

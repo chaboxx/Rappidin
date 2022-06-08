@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUserThunk, singUpUserThunk } from "../../store/slices/AuthSlices";
 import { signIn } from "next-auth/react";
 import { loginUser } from "../../reducers/authReducers";
+import { combineReducers } from "redux";
+import { useEffect } from "react";
 
  
 const RegisterScreen : NextPage = () => {
@@ -21,32 +23,56 @@ const RegisterScreen : NextPage = () => {
   // const { singUpUserThunk } = useSelector((store : any)=>store.auth)
   const router = useRouter();
   const dispatch = useDispatch();
+  //USE STATE CON DESTRUCTURACION DE LSO ERROES DE SIGNUP Y YA :)
+  const { signUp ,login } = useSelector((store:any)=>store.authProvider);
+  const { error , isLoading } = signUp;
+  // const { error , isLoading } = login;
+  console.log({error,isLoading});
 
-  // const {  } = useSelector((store:any)=>store.authProvider);
+  // useEffect(() => {
+
+  // }, [error]);
+  
+  // useEffect(() => {
+    
+  // }, [isLoading]);
 
   const handleRegisterUser = async ( values : any ) =>{
     
     const { email ,phoneNumber ,password } = values;
-    
     try {
       await (dispatch as any)(singUpUserThunk({
         email,
         password,
         tel : phoneNumber,
       }))
-      //FUNCIONA PERO FALTA RECUPERAR MENSAJES DE LA API Y COMBINAR MAS DE UN METODO AYNSCRONO (COMBINE REDUCERS)
-      console.log({email,password});
-      await (dispatch as any)(loginUserThunk({emailTel:email,password}));
+      console.log({error});
+      if(error){
+        return;
+      }
+      await (dispatch as any)(loginUserThunk({emailTel: email,password}))
+  
       router.push("/");
-
+      
     } catch (error) {
-      alert("ERROR")
+      alert("ga")
     }
+    
+    
 
+      // // (dispatch as any)(loginUserThunk({emailTel:email,password}));
+
+        
+      
+
+      //FUNCIONA PERO FALTA RECUPERAR MENSAJES DE LA API Y COMBINAR MAS DE UN METODO AYNSCRONO (COMBINE REDUCERS)
   }
+      
+
+
 
   return (
-    <section className={styles.register_screen_container}>
+    <section  className={styles.register_screen_container}>
       <video className={styles.video_background} loop muted autoPlay>
         <source src="/video_rappidin.mp4"/>
         Your browser doesn't suport video tags.
@@ -55,6 +81,7 @@ const RegisterScreen : NextPage = () => {
         onSubmit={handleSubmit(handleRegisterUser)}
         className={styles.content_container}
         noValidate
+        style={{ backgroundColor : isLoading ? "rgba(0,0,0,0.3)" : "" }}
       >
 
       
@@ -137,8 +164,11 @@ const RegisterScreen : NextPage = () => {
             {errors.phoneNumber && errors.phoneNumber.message}
           </span>
         </div>
-
-        <button className={styles.button}>Register Me</button>
+        
+        {
+          !error ? null : <p>{error}</p>
+        } 
+        <button type="submit" className={styles.button}>Register Me</button>
         <div className={styles.or_container}>
           <p className={styles.or}>OR</p>
         </div>

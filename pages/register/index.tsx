@@ -40,51 +40,43 @@ const RegisterScreen : NextPage = () => {
   const handleRegisterUser = async ( values : any ) =>{
     
     const { email ,phoneNumber ,password } = values;
-    try {
-      await (dispatch as any)(singUpUserThunk({
-        email,
-        password,
-        tel : phoneNumber,
-      }))
-      console.log({error});
-      if(error){
-        return;
-      }
-      await (dispatch as any)(loginUserThunk({emailTel: email,password}))
-  
-      router.push("/");
-      
-    } catch (error) {
-      alert("ga")
+ 
+    const respSignUp = await (dispatch as any)(singUpUserThunk({
+      email,
+      password,
+      tel : phoneNumber,
+    }));
+
+    
+    if ( !respSignUp.payload ){
+      return;
     }
+
+    const respLoginUp = await (dispatch as any)(loginUserThunk({emailTel: email,password}))
+
+    if ( !respLoginUp.payload ){
+      return;
+    }
+
+    router.push("/");
+
     
-    
-
-      // // (dispatch as any)(loginUserThunk({emailTel:email,password}));
-
-        
-      
-
-      //FUNCIONA PERO FALTA RECUPERAR MENSAJES DE LA API Y COMBINAR MAS DE UN METODO AYNSCRONO (COMBINE REDUCERS)
   }
       
 
 
 
   return (
-    <section  className={styles.register_screen_container}>
+    <section className={styles.register_screen_container}>
       <video className={styles.video_background} loop muted autoPlay>
         <source src="/video_rappidin.mp4"/>
         Your browser doesn't suport video tags.
       </video>
-      <form 
+      <form
         onSubmit={handleSubmit(handleRegisterUser)}
         className={styles.content_container}
         noValidate
-        style={{ backgroundColor : isLoading ? "rgba(0,0,0,0.3)" : "" }}
       >
-
-      
         <div className={styles.input_container}>
           <AiOutlineUser className={styles.icon} />
           <input 
@@ -166,9 +158,9 @@ const RegisterScreen : NextPage = () => {
         </div>
         
         {
-          !error ? null : <p>{error}</p>
+          !error ? null : <p className={styles.error_message} style={{marginBottom:"7px"}}>{error}</p>
         } 
-        <button type="submit" className={styles.button}>Register Me</button>
+        <button disabled={isLoading} style={{ opacity: isLoading ? "0.7" : "1" }} type="submit" className={styles.button}>Register Me</button>
         <div className={styles.or_container}>
           <p className={styles.or}>OR</p>
         </div>

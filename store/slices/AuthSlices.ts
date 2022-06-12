@@ -58,37 +58,35 @@ export const authSlice = createSlice({
   },
   extraReducers : {
     [singUpUserThunk.pending as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
-      console.log({state,action});
-      // state.isLoading = true;
       state.signUp.isLoading = true;
-      // return action.payload;
      
     },
     [singUpUserThunk.fulfilled as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
-      
-      // const { ok , msg , data } = action.payload;
-      
-      // const { email,tel } = data[0];
-      
-      // state.email=email;
-      // state.tel = tel;
-      // state.isLoading = false;
-      console.log({done : "DONE"});
-        // return action.payload;
-        //NO SE PUEDE RETORNAR ASI QUE POSIBLEMENTE TODO DEBE SER CON ESTADO
-      
+
       state.signUp.isLoading = false;
-      
-      
+     
     },
     [singUpUserThunk.rejected as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
-      console.log({state,action});
-      // state.isLoading = false;
       state.signUp.isLoading = false;
-      state.signUp.error = "Error Intente de Nuevo Porfavor"
-      // return action.payload;
-      
+      state.signUp.error = "Error Try Again Please"
     },
+    [loginUserThunk.pending as any] : ( state : USER_INITITAL_STATE_INTERFACE , action )=>{
+
+      state.login.isLoading = true;
+
+
+    },
+    [loginUserThunk.rejected as any] : ( state : USER_INITITAL_STATE_INTERFACE , action )=>{
+
+      state.login.isLoading = false;
+      state.login.error = "Error Try Again Please"
+    },
+    [loginUserThunk.fulfilled as any] : ( state : USER_INITITAL_STATE_INTERFACE , action )=>{
+      
+      state.login.isLoading = false;
+      
+    }
+
   }
 })
 

@@ -45,9 +45,10 @@ const registerUser =  async ( req: NextApiRequest, res: NextApiResponse<Response
       })
     }
     
-    const { rowCount } = await database.query(`select email from users where id=$1`,[email]);
+    const { rowCount } = await database.query(`select email from users where email=$1`,[email]);
 
     if( rowCount!==0 ){
+      
       return res.status(400).json({
         ok: false,
         msg : "User Exists",

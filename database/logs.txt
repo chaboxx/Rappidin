@@ -1,0 +1,29 @@
+
+
+
+
+
+-- insert into restaurants (name,description,logo,min_price,order_time_minimun,order_timen_maximun,starts_calification,delivery_price,schedule)
+-- 	values ('MI CEVICHITO','LOS MEJORES CEVICHES DE TODO CUSCO PARA TI','http://centralrestaurante.com.pe/assets/images/facebook3.jpg','20','40','120',4.3,'10','7-16');
+
+-- insert into menus ( name,description,price,image ) values ('Ceviche XXL','Ceviche de la casa al mejor estilo peruano','60','https://cevicheweb.com/wp-content/uploads/2019/04/5.1-Leche-de-tigre-DF-2.jpg');
+
+-- alter table menus alter column image type varchar(128);
+-- update restaurants set name='MI REAL CEVICHITO' where id = 1;
+-- { , , , } => LISTAS; 
+-- insert into elections ( name,required , elections ) values ( 'Ajies', 'true' , '{AJI CASERO,AJI MACHO,PASTE DE AJI}' );
+
+-- insert into aditionals ( name , price , max_portions , aditionals ) values ('GASEOSAS','5','5','{Gaseosa Coca Cola ,Gaseosa Inka Kola ,Fanta , Sprite}');
+
+-- select * from menus;
+
+-- update menus set aditionals='{1,2,3}' where id in ('1','2','3');
+-- select * from directions;
+
+-- update restaurants = '3' where id = 1;
+
+select * from restaurants;
+
+
+
+-- select * from aditionals;

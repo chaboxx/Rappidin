@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps, NextPage ,GetStaticPaths} from 'next';
 
 import { Layout } from '../../layouts/Layout';
 
@@ -176,6 +176,23 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 }
 
 
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
+  const resp = await  database.query(`select * from restaurants`);
+
+  const { rows } = resp;
+  
+
+  return {
+    paths: [
+      {
+        params: {
+          
+        }
+      }
+    ],
+    fallback: "blocking"
+  }
+}
 
 
 export default RestaurantScreen;

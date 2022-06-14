@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage ,GetStaticPaths} from 'next';
+import { GetServerSideProps, NextPage ,GetStaticPaths, GetStaticProps} from 'next';
 
 import { Layout } from '../../layouts/Layout';
 
@@ -116,18 +116,19 @@ const cart : Cart = {
 }
 
 interface Props {
-  rows : any;
+  restaurant : any;
 }
-const RestaurantScreen : NextPage<Props> = ({rows}) => {
+const RestaurantScreen : NextPage<Props> = ({restaurant}) => {
   
   const { calification } = useCalification(comentaries);
-  console.log({rows});
+  
+  console.log({restaurant});
   return (
     <>
       <Layout title="Restaurante" description="Restaurante Detalles-Descripcion">
         <div className={styles.restaurant_screen_module}>
           <h4 className={styles.restaurant_title}>
-            Conrad Chicago <br/>Restaurant
+            {restaurant.name} <br/>Restaurant
           </h4>
           <p className={styles.restaurant_subtitle}>963 Madyson Drive Suite 679</p>
           <div className={styles.restaurant_calification}>
@@ -148,7 +149,7 @@ const RestaurantScreen : NextPage<Props> = ({rows}) => {
           <div className={styles.restaurant_delivery_information}>
             <div className={styles.restaurant_delivery}>
               <p className={styles.delivery}>Delivery</p>
-              <p className={styles.info_price}>FREE</p>
+              <p className={styles.info_price}>{restaurant.delivery_price} PEN</p>
             </div>
             <div className={styles.open_time_container}>
               <p className={styles.open}>Open time</p>
@@ -164,33 +165,57 @@ const RestaurantScreen : NextPage<Props> = ({rows}) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+// export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
-  const { rows } = await database.query(`select * from users`);
+//   const { rows } = await database.query(`select * from users`);
   
+//   return {
+//     props: {
+//       rows,
+//     }
+//   }
+// }
+
+export const getStaticProps: GetStaticProps = async ({params}) => {
+  // const { data } = await  // your fetch function here 
+  // console.log({params});
+  const { nameRestaurant } = params as any;
+
+  const respRestaurant = await database.query(`select * from restaurants where name=$1`,[nameRestaurant]);
+
+  const respMenus = await database.query(`select * from menus where id in ( select menus from restaurants where name=$1)`,[nameRestaurant]);
+  
+
+
+  const restaurant = respRestaurant.rows[0];
+  const menus = respMenus.rows[0];
+
+  // const { id , name , menus } = restaurant;
+
+  console.log({menus});
+
+
   return {
     props: {
-      rows,
+      restaurant,
     }
   }
 }
-
-
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const resp = await  database.query(`select * from restaurants`);
+  const resp = await database.query(`select * from restaurants`);
 
   const { rows } = resp;
   
+  const paths = rows.map(row=>({
+    params : {
+      id : row.id,
+      nameRestaurant : row.name,
+    },
+  }))
 
   return {
-    paths: [
-      {
-        params: {
-          
-        }
-      }
-    ],
-    fallback: "blocking"
+    paths,
+    fallback: false, 
   }
 }
 

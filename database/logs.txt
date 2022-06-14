@@ -2,7 +2,7 @@
 
 
 
-
+// EDITAR PARAMETROS DE TIPOS DE COLUMNAS  Y UPDATE
 -- insert into restaurants (name,description,logo,min_price,order_time_minimun,order_timen_maximun,starts_calification,delivery_price,schedule)
 -- 	values ('MI CEVICHITO','LOS MEJORES CEVICHES DE TODO CUSCO PARA TI','http://centralrestaurante.com.pe/assets/images/facebook3.jpg','20','40','120',4.3,'10','7-16');
 
@@ -27,3 +27,18 @@ select * from restaurants;
 
 
 -- select * from aditionals;
+
+
+//IN LIST  O VALUES
+-- select * from menus where id = any ( (select menus from restaurants where name='MI REAL CEVICHITO') ::int[] );
+
+-- select * from menus where ( select menus from restaurants where menus.id = any ((restaurants.menus) :: int[]) );
+
+
+select * from menus where id = any ((select menus from restaurants where name ='MI REAL CEVICHITO')::int[]);
+
+
+-- select menus from restaurants where name ='MI REAL CEVICHITO'
+
+-- in (2,3,4) => cada elemento se compara con toda la lista 
+-- any ({1,2,4}) => es cualquiera del array

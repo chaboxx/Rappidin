@@ -29,14 +29,8 @@ interface LoginUserPayload {
   password : string;
 }
 
-export const loginUser = async({ emailTel,password } : LoginUserPayload ) =>{
 
-  
-  const resp = await signIn("credentials",{ redirect:false, email:emailTel , password });
-  
+export const loginUser = async({ emailTel,password } : LoginUserPayload ) =>{
+  const resp = await signIn("credentials",{ redirect:false, email:emailTel , password });  
   return resp;
-    
-  
-  
-  
 }

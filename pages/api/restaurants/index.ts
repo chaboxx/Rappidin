@@ -24,13 +24,14 @@ const getAllRestaurants =  async ( req: NextApiRequest, res: NextApiResponse<Res
         ok: true,
         msg : "All the restaurants",
         data: resp.rows,
-      })
+      });
+      
     } catch (error) {
       console.log(error);
       return res.status(500).json({
         ok: false,
         msg : "Error in the server", 
-      })
+      });
     }
     
   }else{

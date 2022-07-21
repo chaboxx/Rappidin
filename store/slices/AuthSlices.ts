@@ -59,32 +59,24 @@ export const authSlice = createSlice({
   extraReducers : {
     [singUpUserThunk.pending as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
       state.signUp.isLoading = true;
-     
     },
     [singUpUserThunk.fulfilled as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
-
       state.signUp.isLoading = false;
-     
     },
     [singUpUserThunk.rejected as any] : ( state : USER_INITITAL_STATE_INTERFACE, action )=>{
       state.signUp.isLoading = false;
       state.signUp.error = "Error Try Again Please"
     },
+
     [loginUserThunk.pending as any] : ( state : USER_INITITAL_STATE_INTERFACE , action )=>{
-
       state.login.isLoading = true;
-
-
     },
     [loginUserThunk.rejected as any] : ( state : USER_INITITAL_STATE_INTERFACE , action )=>{
-
       state.login.isLoading = false;
       state.login.error = "Error Try Again Please"
     },
     [loginUserThunk.fulfilled as any] : ( state : USER_INITITAL_STATE_INTERFACE , action )=>{
-      
-      state.login.isLoading = false;
-      
+      state.login.isLoading = false;      
     }
 
   }

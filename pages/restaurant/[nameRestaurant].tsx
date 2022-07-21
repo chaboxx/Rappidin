@@ -121,8 +121,8 @@ interface Props {
 const RestaurantScreen : NextPage<Props> = ({restaurant}) => {
   
   const { calification } = useCalification(comentaries);
-  
-  console.log({restaurant});
+
+
   return (
     <>
       <Layout title="Restaurante" description="Restaurante Detalles-Descripcion">
@@ -192,7 +192,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   // const { id , name , menus } = restaurant;
 
-  console.log({menus});
+  
 
 
   return {
@@ -209,10 +209,14 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const paths = rows.map(row=>({
     params : {
       id : row.id,
-      nameRestaurant : row.name,
+      nameRestaurant : row.name.toLowerCase().replaceAll(" ","%20"),
     },
-  }))
+  }));
 
+  paths.forEach((path)=>{
+    console.log({path});
+  })
+  
   return {
     paths,
     fallback: false, 
